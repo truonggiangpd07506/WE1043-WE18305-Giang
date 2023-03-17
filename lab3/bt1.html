@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function tinhtrungbinh (a) {
+            console.log(` xét học lực bằng switch case`);
+    switch(a) {
+        case 10:
+        case 9: console.log('giỏi');break;
+        case 8:
+        case 7: console.log('khá');break;
+        case 6:
+        case 5: console.log('trung bình');break;
+        default : console.log('yếu');
+
+    }
+}
+function tinhtrungbinh2(a) {
+    console.log(` xét học lực bằng if else`);
+    if(a>=9) { console.log('giỏi');}
+     else if(a>=7) { console.log('khá');}
+      else if(a>=5) { console.log('trung bình');}
+       else {console.log('yếu');}
+
+}
+ // nhập 
+let toan = prompt(" mời nhập điểm toán :")
+let toan1 = parseFloat(toan);
+  
+let ly = prompt(" mời nhập điểm lý :")
+let ly1 = parseFloat(ly);
+ 
+let hoa = prompt(" mời nhập điểm hóa :")
+let hoa1 = parseFloat(hoa);
+
+let sinh = prompt(" mời nhập điểm sinh :")
+let sinh1 = parseFloat(sinh);
+
+ // tính trung bình
+  let  tb = ( toan1+ly1+hoa1+sinh1)/4;
+   tb=parseInt(tb);
+   console.log(`điểm trung bình :`);
+   console.log(tb);
+
+// main
+
+do {
+    console.log(`  chương trình 
+ 1. tính trung bình bằng switch case
+ 2. tính trung bình bằng if else
+ 0. thoát `);
+   var a = prompt(' chọn chương trình :')
+   var a1 = parseInt(a);
+   if(parseInt(a1)<0 || parseInt(a1)>2) console.log(' mời nhập lại (0,1,2)');
+    switch(a1) {
+        case 1 : tinhtrungbinh(tb);break;
+        case 2 : tinhtrungbinh2(tb);break;
+        default : console.log(' thoát chương trình ');break; 
+    }
+} while ( parseInt(a1) != 0)
+    </script>
+    
+</body>
+</html>
