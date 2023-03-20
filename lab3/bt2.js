@@ -78,11 +78,11 @@ function ClickButton (obj){
             if (phim_moi != '') mangso[mangso_index] = parseFloat(phim_moi);
             // gọi hàm tính
             GetPercent();
-            // đưa tất cả về ban đầu
+        /*    // đưa tất cả về ban đầu
             mangpt =new Array()
             mangpt_index = 0;
             mangso = new Array();
-            mangso_index = 0;
+            mangso_index = 0; */
 
          }
     else if (type == 'C') 
