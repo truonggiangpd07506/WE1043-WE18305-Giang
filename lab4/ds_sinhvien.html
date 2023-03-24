@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="sinhVien.js"></script>
+</head>
+<body>
+    <script>
+  var hs =[
+    new student('000','van','linh','we18305','vanlinh@gmail.com','0888686766','2004'),     
+    new student('001','le','giang','we18305','legiang@gmail.com','08886886868',"2000"),
+    new student('002','le','son','we18305','leson@gmail.com','08886856789',1999),
+    new student('003','phan','binh','we18305','phanbinh@gmail.com','08886886666','2002'),  
+    new student('004','van','binh','we18305','vanbinh@gmail.com','088868899','1998')
+   ]
+  hs.sort((a,b) => {
+    const ageA = a.getAge();
+    const ageB = b.getAge();
+    if (ageA<ageB) return -1
+    else return 1;
+    return 0;
+  })
+  for (var x in hs) {
+    console.log(hs[x]);
+  }
+  alert(" chieu rong la: " + screen.width);
+  alert(" chieu cao la: " + screen.height);
+    </script>
+</body>
+</html> 
