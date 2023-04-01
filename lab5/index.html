@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <h2>todo list</h2>
+    <div>
+        <label for="">tên</label>
+        <input type="text" id="name" value="">
+    </div>
+    <div>
+        <label for="">ghi chú</label>
+        <input type="text" id="note" value="">
+    </div>
+    <div>
+        <button onclick="add()">ADD</button>
+    </div>
+    <table class="table" id="render">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Note</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+    </table>
+   <script>
+       data =[]; vt=0; 
+       var kt=-1;
+       function add(){
+          var item_id =parseInt(vt);
+          var item_ten = document.getElementById("name").value
+          var item_note = document.getElementById("note").value
+          var item ={
+            Name :item_ten,
+            Note :item_note,
+            ID :item_id
+          }
+          ktb=true;
+      for(let i=0;i<data.length;i++){
+        if (data[i].ID == kt ) {ktb=false; break;}
+      }
+      if ( ktb==false) {
+        data.splice(kt,1,item);
+      } else {
+        data.push(item); vt++;     
+      }
+           
+          render();
+          clear();
+       }
+       function render(){
+        table =`<tr>
+                <th>Name</th>
+                <th>Note</th>
+                <th>Actions</th>
+            </tr>`;
+            for (let i=0;i<data.length;i++){
+                table += `<tr>
+                <th>${data[i].Name}</th>
+                <th>${data[i].Note}</th>
+                <th>
+                    <button onclick="deleteItem(${data[i].ID})">DELETE</button> 
+                    <button onclick="editItem(${data[i].ID})">EDIT</button>   
+                </th>   
+            </tr>`
+            }
+          document.getElementById("render").innerHTML=table;
+       }
+       function clear(){
+        document.getElementById("name").value ="";
+        document.getElementById("note").value="";
+       }
+       function deleteItem(x){
+          console.log(x);  
+         data.splice(x,1);
+         for (let i=x;i<data.length;i++) {
+             data[i].ID -=1;
+         }
+          render(); 
+       }
+      
+       function editItem(x){
+              kt=data[x].ID;
+               document.getElementById("name").value=data[x].Name;
+               document.getElementById("note").value=data[x].Note;
+        
+    }
+   </script>
+</body>
+</html>
