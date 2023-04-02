@@ -1,0 +1,53 @@
+#slider{
+    height: 350px;
+    width: 1000px;
+    margin: auto;
+    position: relative;
+}
+#slider #sotrang{
+   position: absolute;
+   top :5%; 
+   left: 5%;
+}
+#slider #hinh{
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s;
+}
+#slider #hinh:hover,
+#slider #hinh:active{
+  border: 2px solid red;
+  transform: scale(1.1);
+}
+#slider #mota{
+    position: absolute;
+    top: 85%;
+    left: 40%;
+    font-size: 1.3em;
+    color: black;
+}
+#slider .fa-caret-square-left{
+    position: absolute;
+    top: 45%;
+    left: 3%;
+    font-size: 32px;
+}
+#slider .fa-caret-square-right{
+    position: absolute;
+    top: 45%;
+    left: 94%;
+    font-size: 32px;
+}
+.abc{
+   position: relative;
+   left: 39%;
+}
+.abc ul li {
+  display: inline;
+  margin-left: 7px;
+  font-size: 30px;
+  color: rgb(237, 128, 128);
+}
+.abc ul li #one{
+    color: red;
+}
