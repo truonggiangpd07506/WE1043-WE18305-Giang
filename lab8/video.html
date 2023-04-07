@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        #container{
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+        h1{
+          margin-left: 50px;
+          color: darkorchid;
+        }
+        #controls{
+            margin-left: 40px;
+            margin-top: 20px;
+        }
+        #controls button{
+           background-color: rgb(215, 243, 187);
+           border: 0px;
+           border-radius: 5px;
+        }
+        #controls button:hover{
+            background-color: rgb(230, 119, 132);
+        }
+        .muteroi{
+            background-color: rgb(230, 119, 132);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1> Bao xiền một mớ bình yên</h1>
+        <div id="player-container">
+            <video id="myVideo"  height="350" >
+                <source src="vddeoo.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+              <div id="controls">
+                 <button onclick="playPause()">Play/Pause</button>
+                 <button onclick="stop()">Stop</button>
+                 <button onclick="replay()">Replay</button>
+                 <button onclick="tangam()">Volume +</button>
+                 <button onclick="giamam()">Volume -</button>
+                 <button onclick="tattieng()">Mute</button>
+              </div>
+        </div>
+    </div>
+    <script src="video.js"></script>
+</body>
+</html>
