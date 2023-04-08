@@ -1,3 +1,6 @@
+html{
+    scroll-behavior: smooth;
+}
 *{
     padding: 0px;
     margin: 0px;
@@ -80,6 +83,10 @@ h1{
     background-color: rgb(102, 48, 9);
 }
 /*------about section------*/
+.about-section{
+    background-color: #d9f0f5;
+    height: 550px;
+}
 h2{
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -100,7 +107,7 @@ h2::after{
 }
 .p-long{
     text-align: center;
-    color: rgb(21, 21, 117);
+    color: rgb(6, 6, 66);
     font-size: 22px;
     margin-top: 60px;
     margin-bottom: 40px;
@@ -126,7 +133,7 @@ section{
     position: absolute;
     top: 50%;
     left: 50%;
-    color: #c3dbf3;
+    color: #044a5b;
     transform: translate(-65%,100%);
     opacity: 0;
     transition: all 0.7s;
@@ -142,9 +149,8 @@ section{
 }
 /*---------- products section ----------*/
 .product-section{
-    background-color: rgb(229, 240, 240);
-    margin-top: 200px;
-    padding-bottom: 400px;
+    background-color: rgb(231, 242, 206);
+    height: 600px;
 }
 .product-section h2{
     margin-bottom: 60px;
@@ -191,12 +197,11 @@ h3{
 }
 /*---------- testimonial section ----------*/
 .testimonials-section{
-    margin-top: 200px;
-    padding-bottom: 400px;
     background-image:linear-gradient(rgba(2,33,64,0.8),rgba(45,95,93,0.8)), url(../assignment/img/backgroudd.jpg);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
+    height: 400px;
 
 }
 .testimonials-section h2{
@@ -227,38 +232,151 @@ cite img{
 }
 /*---------- sponsor ----------*/
 .sponsor-section{
-    background-color: #f1c7ec;
-    margin-top: 200px;
-    padding-bottom: 400px;
+    background-color:  #d9f0f5;
+    height: 650px;
 }
 .sponsor-section h2{
     margin-bottom: 50px;
 
 }
-.sponsor-showcase{
-  margin-left: 10%;
+#slider{
+    height: 350px;
+    width: 1000px;
+    margin: auto;
+    position: relative;
 }
-.sponsor-showcase li{
-    list-style: none;
-    float: left;
-    width: 30%;
-    text-align: center;
-    margin-bottom: 20px;
+#slider #sotrang{
+   position: absolute;
+   top :5%; 
+   left: 5%;
 }
- .logo-sponsor{
- width: 140px;
- cursor: pointer;
- transition: all 0.3s;
- }
- .sponsor-showcase li .logo-sponsor:hover,
- .sponsor-showcase li .logo-sponsor:active
- {
-   transform: scale(1.1);
+#slider #hinh{
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s;
+}
+#slider #hinh:hover,
+#slider #hinh:active{
+  border: 2px solid red;
+  transform: scale(1.1);
+}
+#slider #mota , #sotrang{
+    position: absolute;
+    top: 85%;
+    left: 40%;
+    font-size: 1.3em;
+    color: white;
+}
+#slider .fa-caret-square-left{
+    position: absolute;
+    top: 45%;
+    left: 3%;
+    font-size: 32px;
+}
+#slider .fa-caret-square-right{
+    position: absolute;
+    top: 45%;
+    left: 94%;
+    font-size: 32px;
+}
+.abc{
+   position: relative;
+   left: 40%;
+   top: 30px; 
+}
+.abc ul li {
+  display: inline;
+  margin-left: 7px;
+  font-size: 30px;
+  color: rgb(240, 130, 238);
+}
+.abc ul li #one{
+    color: rgb(122, 26, 164);
+}
 
+
+ /*---------- contact form ----------*/
+ .contact-section{
+    background-image:linear-gradient(rgba(2,33,64,0.8),rgba(45,95,93,0.8)), url(../assignment/img/backgroudd.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 450px;
  }
- figcaption{
-    color: #265077;
-    font-weight: 900;
-    font-size: 120%;
+ .infomation{
+    list-style: none;
+    color: white;
+    line-height: 200%;
+    margin-top: 70px;
+    word-spacing: 1px;
+    font-size: 90%;
+ }
+ .infomation .small-icon:hover,
+ .infomation .small-icon:active{
+    transform: scale(1.3);
+ }
+ .social-icon{
+    margin-top: 50px;
+    list-style: none;
+ }
+ .social-icon li{
+    display: inline-block;
+    font-size: 250%;
+    margin-left: 20px;
+    color: white;
+ }
+ .social-icon li i{
+    transition: all .3s;
     cursor: pointer;
+ }
+ .social-icon li i:hover,
+ .social-icon li i:active{
+  transform: scale(1.3);
+  color: #e75217;
+ }
+ form{
+    background-color: rgba(0, 0, 0, 0.4);
+    margin-left: 40%;
+    width: 60%;
+ }
+ form .row{
+    margin-bottom: 20px;
+ }
+ label{
+    color: white;
+    font-size: 150%;
+    padding: 20px;
+ }
+ input ,textarea{
+    outline: none;
+    padding: 30px;
+    background-color:  rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.7); 
+    margin-left: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+ }
+ textarea{
+    resize: none;
+    height: 100px;
+ }
+ input{
+    height: 50px;
+ }
+ form .row:last-child{
+    text-align: center;
+ }
+ input [type=submit]{
+    font-weight: 700;
+    font-size: 100%;
+    border-radius: 5px;
+    width: 60%;
+ }
+
+ /*---------- footer ----------*/
+ footer{
+    text-align: center;
+    background-color: #494949;
+    color: white;
+    padding: 20px;
  }

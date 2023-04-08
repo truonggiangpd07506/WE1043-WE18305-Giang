@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'poppins';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background:linear-gradient(#773f8e,#1f7ebe);
+        }
+        .container{
+            width: 400px;
+            border: none;
+            border-radius: 10px;
+            background: white;
+            padding: 40px;
+        }
+        .container h1{
+            text-align: center;
+        }
+        .form-controls{
+            width: 100%;
+            position: relative;
+            margin-top: 40px;
+        }
+        .form-controls input{
+            width: 100%;
+            height: 40px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid #adadad;
+        }
+        .form-controls span{
+            position: absolute;
+            border-bottom: 3px solid #2691d9;
+            left: 0;
+            top: 39px;
+            width: 0%;
+            transition: 0.3s;
+        }
+        .form-controls input:focus ~ span {
+            width: 100%;
+        }
+        .form-controls.error small{
+          color: #e74c3c;
+        }
+        .form-controls.error input{
+            border-bottom: 2px solid #e74c3c ;
+        }
+        .btn-submit{
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 25px 0;
+            background:linear-gradient(#773f8e,#1f7ebe);
+            transition: 0.3s;
+        }
+        .btn-submit:hover{
+            background:linear-gradient(#522663,#0e6199);
+        }
+        .signup-link{
+            text-align: center;
+        }
+        .signup-link a{
+            color: #2691d9;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .signup-link a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <h1> Login Form</h1>
+            <div class="form-controls">
+               <input id="username" type="text" placeholder="username" >
+               <small></small>
+               <span></span>
+            </div>
+  
+            <div class="form-controls">
+              <input id="email" type="email" placeholder="email" >
+              <small></small>
+              <span></span>
+           </div>
+  
+           <div class="form-controls">
+              <input id="password" type="password" placeholder="password" >
+              <small></small>
+              <span></span>
+           </div>
+  
+           <div class="form-controls">
+              <input id="confirm-password" type="password" placeholder="confirm password" >
+              <small></small>
+              <span></span>
+           </div>
+  
+           <button type="submit" class="btn-submit">Login</button>
+           <div class="signup-link">
+               not a member ? <a href="#"> signup</a>
+           </div>
+      
+        </form>
+      </div>    
+
+    <script>
+          var username = document.querySelector('#username');
+          var email = document.querySelector('#email');
+          var password = document.querySelector('#password');
+          var confirmpassword = document.querySelector('#confirm-password'); 
+          var form = document.querySelector('form');
+
+          function showError(input,message){
+          let parent =  input.parentElement;
+          let small= parent.querySelector('small');
+
+          parent.classList.add('error');
+          small.innerText = message ;
+          }
+          function showSucces(input){
+          let parent =  input.parentElement;
+          let small= parent.querySelector('small');
+
+          parent.classList.remove('error');
+          small.innerText = '' ;
+          }
+
+          function checkEmptyError(listInput){
+            let isEmptyError = false;
+            listInput.forEach(input => {
+                input.value = input.value.trim();
+                if (!input.value){
+                    isEmptyError = true;
+                    showError(input,'khong duoc de trong')
+                } else{
+                    showSucces(input)
+                }
+            });
+            return isEmptyError;
+          }
+          function checkEmailError(input){
+               const regexEmail=/^\w+@\w+\.com$/i;
+               input.value = input.value.trim();
+               
+               let isEmailError = !regexEmail.test(input.value);
+               if (regexEmail.test(input.value)) {
+                showSucces(input);
+               } else {
+                showError(input,'email invalid')
+               }
+               return isEmailError;
+          }
+          function checkLengthError(input){
+                input.value = input.value.trim();
+              
+                if (input.value.length < 6 ) {
+                    showError(input,'phai co it nhat 6 ki tu');
+                    return true;
+                }
+                if (input.value.length > 18) {
+                    showError(input,'khong duoc qua 18 ki tu');
+                    return true;
+                }
+               showSucces(input);
+               return false;
+          }
+
+          form.addEventListener('submit',function(e){
+            e.preventDefault();
+            
+            let isEmptyError = checkEmptyError([username,email,password,confirmpassword]);
+            let isEmailError = checkEmailErro(email);
+            let isUsernameLengthError = checkLengthError(username);
+            let isPasswordLengthError = checkLengthError(password);
+            
+        })
+ </script>
+</body>
+</html>
